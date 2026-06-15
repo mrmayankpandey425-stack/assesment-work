@@ -1,31 +1,24 @@
 #include <stdio.h>
 
-int main() {
-    int rows, i, j;
-    char ch;
+// Function to find factorial
+long int factorial(int n) {
+    long int fact = 1;
+    int i;
 
-    printf("Enter number of rows: ");
-    scanf("%d", &rows);
-
-    for(i = 1; i <= rows; i++) {
-
-        // Print spaces
-        for(j = 1; j <= rows - i; j++) {
-            printf(" ");
-        }
-
-        // Print increasing characters
-        for(j = 1; j <= i; j++) {
-            printf("%c", 'A' + j - 1);
-        }
-
-        // Print decreasing characters
-        for(j = i - 1; j >= 1; j--) {
-            printf("%c", 'A' + j - 1);
-        }
-
-        printf("\n");
+    for (i = 1; i <= n; i++) {
+        fact = fact * i;
     }
+
+    return fact;
+}
+
+int main() {
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("Factorial of %d = %ld", num, factorial(num));
 
     return 0;
 }

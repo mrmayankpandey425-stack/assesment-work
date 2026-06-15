@@ -1,25 +1,20 @@
 #include <stdio.h>
 
+// Function to find maximum number
+int maximum(int a, int b) {
+    if (a > b)
+        return a;
+    else
+        return b;
+}
+
 int main() {
-    int rows, i, j;
+    int num1, num2;
 
-    printf("Enter number of rows: ");
-    scanf("%d", &rows);
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
 
-    for(i = rows; i >= 1; i--) {
-
-        // Print leading spaces
-        for(j = 1; j <= rows - i; j++) {
-            printf(" ");
-        }
-
-        // Print stars
-        for(j = 1; j <= (2 * i - 1); j++) {
-            printf("*");
-        }
-
-        printf("\n");
-    }
+    printf("Maximum number = %d", maximum(num1, num2));
 
     return 0;
 }

@@ -1,25 +1,17 @@
 #include <stdio.h>
 
+// Function to find sum of two numbers
+int sum(int a, int b) {
+    return a + b;
+}
+
 int main() {
-    int rows, i, j;
+    int num1, num2;
 
-    printf("Enter number of rows: ");
-    scanf("%d", &rows);
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
 
-    for(i = 1; i <= rows; i++) {
-
-        // Print spaces
-        for(j = 1; j <= rows - i; j++) {
-            printf(" ");
-        }
-
-        // Print stars
-        for(j = 1; j <= 2 * i - 1; j++) {
-            printf("*");
-        }
-
-        printf("\n");
-    }
+    printf("Sum = %d\n", sum(num1, num2));
 
     return 0;
 }
