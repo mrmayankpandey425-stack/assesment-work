@@ -1,30 +1,23 @@
 #include <stdio.h>
+
 int main() {
-    int start, end, i, j, isPrime;
+    int n, i;
+    long long first = 0, second = 1, next;
 
-    printf("Enter the starting number: ");
-    scanf("%d", &start);
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
 
-    printf("Enter the ending number: ");
-    scanf("%d", &end);
-
-    printf("Prime numbers between %d and %d are:\n", start, end);
-
-    for(i = start; i <= end; i++) {
-        if(i <= 1)
-            continue;
-
-        isPrime = 1;
-
-        for(j = 2; j < i; j++) {
-            if(i % j == 0) {
-                isPrime = 0;
-                break;
-            }
+    if (n == 1)
+        printf("The 1st Fibonacci term is %lld", first);
+    else if (n == 2)
+        printf("The 2nd Fibonacci term is %lld", second);
+    else {
+        for (i = 3; i <= n; i++) {
+            next = first + second;
+            first = second;
+            second = next;
         }
-
-        if(isPrime)
-            printf("%d ", i);
+        printf("The %dth Fibonacci term is %lld", n, second);
     }
 
     return 0;

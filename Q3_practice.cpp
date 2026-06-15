@@ -1,17 +1,24 @@
 #include <stdio.h>
+
 int main() {
-    int a, b, temp;
+    int num, originalNum, remainder;
+    int result = 0;
 
-    printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    while (b != 0) {
-        temp = b;
-        b = a % b;
-        a = temp;
+    originalNum = num;
+
+    while (num != 0) {
+        remainder = num % 10;
+        result += remainder * remainder * remainder;
+        num /= 10;
     }
 
-    printf("GCD = %d\n", a);
+    if (result == originalNum)
+        printf("%d is an Armstrong number.", originalNum);
+    else
+        printf("%d is not an Armstrong number.", originalNum);
 
     return 0;
 }
