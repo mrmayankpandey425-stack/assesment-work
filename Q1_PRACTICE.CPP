@@ -2,25 +2,42 @@
 
 int main()
 {
-    int arr[100], n, i;
-    int totalSum = 0, arraySum = 0, missing;
+    int arr1[100], arr2[100], arr3[200];
+    int n1, n2, i, j;
 
-    printf("Enter value of n: ");
-    scanf("%d", &n);
+    printf("Enter number of elements in first array: ");
+    scanf("%d", &n1);
 
-    printf("Enter %d elements (one number missing):\n", n - 1);
-
-    for(i = 0; i < n - 1; i++)
+    printf("Enter elements of first array:\n");
+    for(i = 0; i < n1; i++)
     {
-        scanf("%d", &arr[i]);
-        arraySum += arr[i];
+        scanf("%d", &arr1[i]);
     }
 
-    totalSum = n * (n + 1) / 2;
+    printf("Enter number of elements in second array: ");
+    scanf("%d", &n2);
 
-    missing = totalSum - arraySum;
+    printf("Enter elements of second array:\n");
+    for(i = 0; i < n2; i++)
+    {
+        scanf("%d", &arr2[i]);
+    }
 
-    printf("Missing Number = %d", missing);
+    for(i = 0; i < n1; i++)
+    {
+        arr3[i] = arr1[i];
+    }
+
+    for(i = 0, j = n1; i < n2; i++, j++)
+    {
+        arr3[j] = arr2[i];
+    }
+
+    printf("Merged Array:\n");
+    for(i = 0; i < n1 + n2; i++)
+    {
+        printf("%d ", arr3[i]);
+    }
 
     return 0;
 }

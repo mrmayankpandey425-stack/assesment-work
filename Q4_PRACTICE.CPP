@@ -2,37 +2,39 @@
 
 int main()
 {
-    int arr[100], n, i, j, k;
+    int arr1[100], arr2[100];
+    int n1, n2, i, j;
 
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
+    printf("Enter size of first array: ");
+    scanf("%d", &n1);
 
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++)
+    printf("Enter elements of first array:\n");
+    for(i = 0; i < n1; i++)
     {
-        scanf("%d", &arr[i]);
+        scanf("%d", &arr1[i]);
     }
 
-    for(i = 0; i < n; i++)
+    printf("Enter size of second array: ");
+    scanf("%d", &n2);
+
+    printf("Enter elements of second array:\n");
+    for(i = 0; i < n2; i++)
     {
-        for(j = i + 1; j < n; j++)
+        scanf("%d", &arr2[i]);
+    }
+
+    printf("Common elements are:\n");
+
+    for(i = 0; i < n1; i++)
+    {
+        for(j = 0; j < n2; j++)
         {
-            if(arr[i] == arr[j])
+            if(arr1[i] == arr2[j])
             {
-                for(k = j; k < n - 1; k++)
-                {
-                    arr[k] = arr[k + 1];
-                }
-                n--;
-                j--;
+                printf("%d ", arr1[i]);
+                break;
             }
         }
-    }
-
-    printf("Array after removing duplicates:\n");
-    for(i = 0; i < n; i++)
-    {
-        printf("%d ", arr[i]);
     }
 
     return 0;

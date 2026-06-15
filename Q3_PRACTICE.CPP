@@ -2,38 +2,39 @@
 
 int main()
 {
-    int arr[100], n, i, j, sum;
-    int found = 0;
+    int arr1[100], arr2[100];
+    int n1, n2, i, j;
 
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
+    printf("Enter size of first array: ");
+    scanf("%d", &n1);
 
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++)
+    printf("Enter elements of first array:\n");
+    for(i = 0; i < n1; i++)
     {
-        scanf("%d", &arr[i]);
+        scanf("%d", &arr1[i]);
     }
 
-    printf("Enter the required sum: ");
-    scanf("%d", &sum);
+    printf("Enter size of second array: ");
+    scanf("%d", &n2);
 
-    printf("Pairs with given sum are:\n");
-
-    for(i = 0; i < n; i++)
+    printf("Enter elements of second array:\n");
+    for(i = 0; i < n2; i++)
     {
-        for(j = i + 1; j < n; j++)
+        scanf("%d", &arr2[i]);
+    }
+
+    printf("Intersection of arrays:\n");
+
+    for(i = 0; i < n1; i++)
+    {
+        for(j = 0; j < n2; j++)
         {
-            if(arr[i] + arr[j] == sum)
+            if(arr1[i] == arr2[j])
             {
-                printf("(%d, %d)\n", arr[i], arr[j]);
-                found = 1;
+                printf("%d ", arr1[i]);
+                break;
             }
         }
-    }
-
-    if(found == 0)
-    {
-        printf("No pair found.");
     }
 
     return 0;
