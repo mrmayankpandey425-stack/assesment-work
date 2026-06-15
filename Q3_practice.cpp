@@ -1,17 +1,18 @@
 #include <stdio.h>
 
+int sumDigits(int n) {
+    if (n == 0)
+        return 0;
+    return (n % 10) + sumDigits(n / 10);
+}
+
 int main() {
-    int num, count = 0;
+    int num;
 
     printf("Enter a number: ");
     scanf("%d", &num);
 
-    while (num > 0) {
-        count += num % 2;   // Check if last bit is 1
-        num /= 2;           // Remove last bit
-    }
-
-    printf("Number of set bits = %d\n", count);
+    printf("Sum of digits = %d\n", sumDigits(num));
 
     return 0;
 }

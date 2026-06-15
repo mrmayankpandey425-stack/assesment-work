@@ -1,21 +1,25 @@
 #include <stdio.h>
-#include <math.h>
+
+int fibonacci(int n) {
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}
 
 int main() {
-    long long binary;
-    int decimal = 0, base = 0, remainder;
+    int n, i;
 
-    printf("Enter a binary number: ");
-    scanf("%lld", &binary);
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
 
-    while (binary != 0) {
-        remainder = binary % 10;
-        decimal += remainder * pow(2, base);
-        binary /= 10;
-        base++;
+    printf("Fibonacci Series: ");
+
+    for (i = 0; i < n; i++) {
+        printf("%d ", fibonacci(i));
     }
-
-    printf("Decimal = %d\n", decimal);
 
     return 0;
 }

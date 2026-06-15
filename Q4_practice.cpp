@@ -1,20 +1,24 @@
 #include <stdio.h>
 
+int reverse = 0;
+
+void reverseNumber(int n) {
+    if (n == 0)
+        return;
+
+    reverse = reverse * 10 + (n % 10);
+    reverseNumber(n / 10);
+}
+
 int main() {
-    int x, n, i;
-    long long result = 1;
+    int num;
 
-    printf("Enter base (x): ");
-    scanf("%d", &x);
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    printf("Enter exponent (n): ");
-    scanf("%d", &n);
+    reverseNumber(num);
 
-    for(i = 1; i <= n; i++) {
-        result = result * x;
-    }
-
-    printf("%d^%d = %lld\n", x, n, result);
+    printf("Reversed number = %d\n", reverse);
 
     return 0;
 }

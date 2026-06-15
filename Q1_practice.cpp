@@ -1,26 +1,19 @@
 #include <stdio.h>
 
+long long factorial(int n) {
+    if (n == 0 || n == 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
 int main() {
-    int num, binary[32], i = 0;
+    int n;
 
-    printf("Enter a decimal number: ");
-    scanf("%d", &num);
+    printf("Enter a number: ");
+    scanf("%d", &n);
 
-    if (num == 0) {
-        printf("Binary = 0");
-        return 0;
-    }
-
-    while (num > 0) {
-        binary[i] = num % 2;
-        num = num / 2;
-        i++;
-    }
-
-    printf("Binary = ");
-    for (int j = i - 1; j >= 0; j--) {
-        printf("%d", binary[j]);
-    }
+    printf("Factorial of %d = %lld\n", n, factorial(n));
 
     return 0;
 }
