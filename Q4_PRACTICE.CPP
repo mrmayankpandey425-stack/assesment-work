@@ -2,35 +2,27 @@
 
 int main()
 {
-    int arr[100], n, i, j, temp;
+    int a[10][10], n, i, j;
+    int sum = 0;
 
-    printf("Enter number of elements: ");
+    printf("Enter order of square matrix: ");
     scanf("%d", &n);
 
-    printf("Enter array elements:\n");
+    printf("Enter matrix elements:\n");
     for(i = 0; i < n; i++)
     {
-        scanf("%d", &arr[i]);
-    }
-
-    for(i = 0; i < n - 1; i++)
-    {
-        for(j = i + 1; j < n; j++)
+        for(j = 0; j < n; j++)
         {
-            if(arr[i] < arr[j])
-            {
-                temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
+            scanf("%d", &a[i][j]);
         }
     }
 
-    printf("Array in Descending Order:\n");
     for(i = 0; i < n; i++)
     {
-        printf("%d ", arr[i]);
+        sum = sum + a[i][i];
     }
+
+    printf("Sum of diagonal elements = %d", sum);
 
     return 0;
 }
