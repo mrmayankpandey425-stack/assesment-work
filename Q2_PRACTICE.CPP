@@ -1,33 +1,22 @@
 #include <stdio.h>
 
-// Function to check Armstrong number
-int armstrong(int n) {
-    int original, rem, sum = 0;
+int main() {
+    int arr[100], n, i, sum = 0;
+    float average;
 
-    original = n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
 
-    while (n != 0) {
-        rem = n % 10;
-        sum = sum + (rem * rem * rem);
-        n = n / 10;
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        sum = sum + arr[i];
     }
 
-    if (original == sum)
-        return 1;
-    else
-        return 0;
-}
+    average = (float)sum / n;
 
-int main() {
-    int num;
-
-    printf("Enter a number: ");
-    scanf("%d", &num);
-
-    if (armstrong(num))
-        printf("%d is an Armstrong Number", num);
-    else
-        printf("%d is not an Armstrong Number", num);
+    printf("Sum = %d\n", sum);
+    printf("Average = %.2f\n", average);
 
     return 0;
 }
