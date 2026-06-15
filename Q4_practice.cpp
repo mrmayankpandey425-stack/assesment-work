@@ -1,18 +1,29 @@
 #include <stdio.h>
 
 int main() {
-    int n, i, j;
+    int rows, i, j;
+    char ch;
 
-    printf("Enter size of square: ");
-    scanf("%d", &n);
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
 
-    for(i = 1; i <= n; i++) {
-        for(j = 1; j <= n; j++) {
-            if(i == 1 || i == n || j == 1 || j == n)
-                printf("*");
-            else
-                printf(" ");
+    for(i = 1; i <= rows; i++) {
+
+        // Print spaces
+        for(j = 1; j <= rows - i; j++) {
+            printf(" ");
         }
+
+        // Print increasing characters
+        for(j = 1; j <= i; j++) {
+            printf("%c", 'A' + j - 1);
+        }
+
+        // Print decreasing characters
+        for(j = i - 1; j >= 1; j--) {
+            printf("%c", 'A' + j - 1);
+        }
+
         printf("\n");
     }
 
