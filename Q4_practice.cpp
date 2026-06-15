@@ -1,17 +1,23 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    long long factorial = 1;
+    int num, original, reverse = 0, digit;
 
     printf("Enter a number: ");
-    scanf("%d", &n);
+    scanf("%d", &num);
 
-    for(i = 1; i <= n; i++) {
-        factorial = factorial * i;
+    original = num;
+
+    while(num != 0) {
+        digit = num % 10;
+        reverse = reverse * 10 + digit;
+        num = num / 10;
     }
 
-    printf("Factorial of %d = %lld\n", n, factorial);
+    if(original == reverse)
+        printf("%d is a Palindrome Number.\n", original);
+    else
+        printf("%d is not a Palindrome Number.\n", original);
 
     return 0;
 }

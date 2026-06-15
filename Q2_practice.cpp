@@ -1,17 +1,18 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
 int main() {
-    int num;
+    int num, reverse = 0, digit;
 
-    cout << "Enter a number: ";
-    cin >> num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    cout << "Multiplication Table of " << num << ":\n";
-
-    for(int i = 1; i <= 10; i++) {
-        cout << num << " x " << i << " = " << num * i << endl;
+    while(num != 0) {
+        digit = num % 10;              // Extract last digit
+        reverse = reverse * 10 + digit; // Build reversed number
+        num = num / 10;               // Remove last digit
     }
+
+    printf("Reversed number = %d\n", reverse);
 
     return 0;
 }
