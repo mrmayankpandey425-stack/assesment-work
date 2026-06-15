@@ -2,27 +2,33 @@
 
 int main()
 {
-    int a[10][10], n, i, j;
-    int sum = 0;
+    int a[10][10], r, c, i, j, sum;
 
-    printf("Enter order of square matrix: ");
-    scanf("%d", &n);
+    printf("Enter number of rows and columns: ");
+    scanf("%d%d", &r, &c);
 
     printf("Enter matrix elements:\n");
-    for(i = 0; i < n; i++)
+    for(i = 0; i < r; i++)
     {
-        for(j = 0; j < n; j++)
+        for(j = 0; j < c; j++)
         {
             scanf("%d", &a[i][j]);
         }
     }
 
-    for(i = 0; i < n; i++)
-    {
-        sum = sum + a[i][i];
-    }
+    printf("Column-wise Sum:\n");
 
-    printf("Sum of diagonal elements = %d", sum);
+    for(j = 0; j < c; j++)
+    {
+        sum = 0;
+
+        for(i = 0; i < r; i++)
+        {
+            sum += a[i][j];
+        }
+
+        printf("Sum of Column %d = %d\n", j + 1, sum);
+    }
 
     return 0;
 }

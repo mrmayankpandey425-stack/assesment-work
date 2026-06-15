@@ -2,8 +2,7 @@
 
 int main()
 {
-    int a[10][10], transpose[10][10];
-    int r, c, i, j;
+    int a[10][10], r, c, i, j, sum;
 
     printf("Enter number of rows and columns: ");
     scanf("%d%d", &r, &c);
@@ -17,22 +16,18 @@ int main()
         }
     }
 
+    printf("Row-wise Sum:\n");
+
     for(i = 0; i < r; i++)
     {
+        sum = 0;
+
         for(j = 0; j < c; j++)
         {
-            transpose[j][i] = a[i][j];
+            sum += a[i][j];
         }
-    }
 
-    printf("Transpose Matrix:\n");
-    for(i = 0; i < c; i++)
-    {
-        for(j = 0; j < r; j++)
-        {
-            printf("%d ", transpose[i][j]);
-        }
-        printf("\n");
+        printf("Sum of Row %d = %d\n", i + 1, sum);
     }
 
     return 0;

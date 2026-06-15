@@ -2,47 +2,37 @@
 
 int main()
 {
-    int a[10][10], b[10][10], sub[10][10];
-    int r, c, i, j;
+    int a[10][10];
+    int n, i, j, flag = 1;
 
-    printf("Enter number of rows and columns: ");
-    scanf("%d%d", &r, &c);
+    printf("Enter order of square matrix: ");
+    scanf("%d", &n);
 
-    printf("Enter elements of first matrix:\n");
-    for(i = 0; i < r; i++)
+    printf("Enter matrix elements:\n");
+    for(i = 0; i < n; i++)
     {
-        for(j = 0; j < c; j++)
+        for(j = 0; j < n; j++)
         {
             scanf("%d", &a[i][j]);
         }
     }
 
-    printf("Enter elements of second matrix:\n");
-    for(i = 0; i < r; i++)
+    for(i = 0; i < n; i++)
     {
-        for(j = 0; j < c; j++)
+        for(j = 0; j < n; j++)
         {
-            scanf("%d", &b[i][j]);
+            if(a[i][j] != a[j][i])
+            {
+                flag = 0;
+                break;
+            }
         }
     }
 
-    for(i = 0; i < r; i++)
-    {
-        for(j = 0; j < c; j++)
-        {
-            sub[i][j] = a[i][j] - b[i][j];
-        }
-    }
-
-    printf("Difference of matrices:\n");
-    for(i = 0; i < r; i++)
-    {
-        for(j = 0; j < c; j++)
-        {
-            printf("%d ", sub[i][j]);
-        }
-        printf("\n");
-    }
+    if(flag == 1)
+        printf("Matrix is Symmetric");
+    else
+        printf("Matrix is Not Symmetric");
 
     return 0;
 }
