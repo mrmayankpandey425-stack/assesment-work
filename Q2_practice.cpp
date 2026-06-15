@@ -1,24 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    long long first = 0, second = 1, next;
+    int num, originalNum, remainder;
+    int sum = 0, fact, i;
 
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    if (n == 1)
-        printf("The 1st Fibonacci term is %lld", first);
-    else if (n == 2)
-        printf("The 2nd Fibonacci term is %lld", second);
-    else {
-        for (i = 3; i <= n; i++) {
-            next = first + second;
-            first = second;
-            second = next;
+    originalNum = num;
+
+    while (num > 0) {
+        remainder = num % 10;
+
+        fact = 1;
+        for (i = 1; i <= remainder; i++) {
+            fact *= i;
         }
-        printf("The %dth Fibonacci term is %lld", n, second);
+
+        sum += fact;
+        num /= 10;
     }
+
+    if (sum == originalNum)
+        printf("%d is a Strong Number.", originalNum);
+    else
+        printf("%d is not a Strong Number.", originalNum);
 
     return 0;
 }

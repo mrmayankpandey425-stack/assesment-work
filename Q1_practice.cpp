@@ -1,19 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int n, first = 0, second = 1, next;
+    int num, i, sum = 0;
 
-    printf("Enter the number of terms: ");
-    scanf("%d", &n);
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    printf("Fibonacci Series: ");
-
-    for (int i = 0; i < n; i++) {
-        printf("%d ", first);
-        next = first + second;
-        first = second;
-        second = next;
+    for(i = 1; i < num; i++) {
+        if(num % i == 0) {
+            sum += i;
+        }
     }
+
+    if(sum == num)
+        printf("%d is a Perfect Number.", num);
+    else
+        printf("%d is not a Perfect Number.", num);
 
     return 0;
 }
