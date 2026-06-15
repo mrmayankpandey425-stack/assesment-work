@@ -1,24 +1,16 @@
 #include <stdio.h>
 
-int fibonacci(int n) {
-    if (n == 0)
-        return 0;
-    else if (n == 1)
-        return 1;
-    else
-        return fibonacci(n - 1) + fibonacci(n - 2);
-}
-
 int main() {
-    int n, i;
+    int rows, i, j;
 
-    printf("Enter the number of terms: ");
-    scanf("%d", &n);
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
 
-    printf("Fibonacci Series: ");
-
-    for (i = 0; i < n; i++) {
-        printf("%d ", fibonacci(i));
+    for(i = 1; i <= rows; i++) {
+        for(j = 1; j <= i; j++) {
+            printf("%d", j);
+        }
+        printf("\n");
     }
 
     return 0;

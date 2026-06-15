@@ -1,19 +1,17 @@
 #include <stdio.h>
 
-long long factorial(int n) {
-    if (n == 0 || n == 1)
-        return 1;
-    else
-        return n * factorial(n - 1);
-}
-
 int main() {
-    int n;
+    int rows, i, j;
 
-    printf("Enter a number: ");
-    scanf("%d", &n);
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
 
-    printf("Factorial of %d = %lld\n", n, factorial(n));
+    for(i = 1; i <= rows; i++) {
+        for(j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
 
     return 0;
 }

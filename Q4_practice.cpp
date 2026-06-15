@@ -1,24 +1,17 @@
 #include <stdio.h>
 
-int reverse = 0;
-
-void reverseNumber(int n) {
-    if (n == 0)
-        return;
-
-    reverse = reverse * 10 + (n % 10);
-    reverseNumber(n / 10);
-}
-
 int main() {
-    int num;
+    int rows, i, j;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
 
-    reverseNumber(num);
-
-    printf("Reversed number = %d\n", reverse);
+    for(i = 1; i <= rows; i++) {
+        for(j = 1; j <= i; j++) {
+            printf("%d", i);
+        }
+        printf("\n");
+    }
 
     return 0;
 }

@@ -1,18 +1,17 @@
 #include <stdio.h>
 
-int sumDigits(int n) {
-    if (n == 0)
-        return 0;
-    return (n % 10) + sumDigits(n / 10);
-}
-
 int main() {
-    int num;
+    int rows, i, j;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
 
-    printf("Sum of digits = %d\n", sumDigits(num));
+    for(i = 1; i <= rows; i++) {
+        for(j = 0; j < i; j++) {
+            printf("%c", 'A' + j);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
