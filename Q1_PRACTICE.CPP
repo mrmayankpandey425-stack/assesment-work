@@ -2,41 +2,34 @@
 
 int main()
 {
-    int arr1[100], arr2[100], arr3[200];
-    int n1, n2, i, j;
+    int arr[100], n, i, j, temp;
 
-    printf("Enter number of elements in first array: ");
-    scanf("%d", &n1);
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
 
-    printf("Enter elements of first array:\n");
-    for(i = 0; i < n1; i++)
+    printf("Enter array elements:\n");
+    for(i = 0; i < n; i++)
     {
-        scanf("%d", &arr1[i]);
+        scanf("%d", &arr[i]);
     }
 
-    printf("Enter number of elements in second array: ");
-    scanf("%d", &n2);
-
-    printf("Enter elements of second array:\n");
-    for(i = 0; i < n2; i++)
+    for(i = 0; i < n - 1; i++)
     {
-        scanf("%d", &arr2[i]);
+        for(j = 0; j < n - i - 1; j++)
+        {
+            if(arr[j] > arr[j + 1])
+            {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
     }
 
-    for(i = 0; i < n1; i++)
+    printf("Sorted Array:\n");
+    for(i = 0; i < n; i++)
     {
-        arr3[i] = arr1[i];
-    }
-
-    for(i = 0, j = n1; i < n2; i++, j++)
-    {
-        arr3[j] = arr2[i];
-    }
-
-    printf("Merged Array:\n");
-    for(i = 0; i < n1 + n2; i++)
-    {
-        printf("%d ", arr3[i]);
+        printf("%d ", arr[i]);
     }
 
     return 0;

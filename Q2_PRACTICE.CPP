@@ -2,47 +2,38 @@
 
 int main()
 {
-    int arr1[100], arr2[100], unionArr[200];
-    int n1, n2, i, j, k = 0, found;
+    int arr[100], n, i, j, minIndex, temp;
 
-    printf("Enter size of first array: ");
-    scanf("%d", &n1);
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
 
-    printf("Enter elements of first array:\n");
-    for(i = 0; i < n1; i++)
+    printf("Enter array elements:\n");
+    for(i = 0; i < n; i++)
     {
-        scanf("%d", &arr1[i]);
-        unionArr[k++] = arr1[i];
+        scanf("%d", &arr[i]);
     }
 
-    printf("Enter size of second array: ");
-    scanf("%d", &n2);
-
-    printf("Enter elements of second array:\n");
-    for(i = 0; i < n2; i++)
+    for(i = 0; i < n - 1; i++)
     {
-        scanf("%d", &arr2[i]);
+        minIndex = i;
 
-        found = 0;
-        for(j = 0; j < k; j++)
+        for(j = i + 1; j < n; j++)
         {
-            if(arr2[i] == unionArr[j])
+            if(arr[j] < arr[minIndex])
             {
-                found = 1;
-                break;
+                minIndex = j;
             }
         }
 
-        if(found == 0)
-        {
-            unionArr[k++] = arr2[i];
-        }
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
     }
 
-    printf("Union of arrays:\n");
-    for(i = 0; i < k; i++)
+    printf("Sorted Array:\n");
+    for(i = 0; i < n; i++)
     {
-        printf("%d ", unionArr[i]);
+        printf("%d ", arr[i]);
     }
 
     return 0;

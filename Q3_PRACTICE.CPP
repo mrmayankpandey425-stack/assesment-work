@@ -2,39 +2,48 @@
 
 int main()
 {
-    int arr1[100], arr2[100];
-    int n1, n2, i, j;
+    int arr[100], n, i, key;
+    int low, high, mid;
+    int found = 0;
 
-    printf("Enter size of first array: ");
-    scanf("%d", &n1);
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
 
-    printf("Enter elements of first array:\n");
-    for(i = 0; i < n1; i++)
+    printf("Enter sorted array elements:\n");
+    for(i = 0; i < n; i++)
     {
-        scanf("%d", &arr1[i]);
+        scanf("%d", &arr[i]);
     }
 
-    printf("Enter size of second array: ");
-    scanf("%d", &n2);
+    printf("Enter element to search: ");
+    scanf("%d", &key);
 
-    printf("Enter elements of second array:\n");
-    for(i = 0; i < n2; i++)
+    low = 0;
+    high = n - 1;
+
+    while(low <= high)
     {
-        scanf("%d", &arr2[i]);
-    }
+        mid = (low + high) / 2;
 
-    printf("Intersection of arrays:\n");
-
-    for(i = 0; i < n1; i++)
-    {
-        for(j = 0; j < n2; j++)
+        if(arr[mid] == key)
         {
-            if(arr1[i] == arr2[j])
-            {
-                printf("%d ", arr1[i]);
-                break;
-            }
+            found = 1;
+            printf("Element found at position %d", mid + 1);
+            break;
         }
+        else if(arr[mid] < key)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+
+    if(found == 0)
+    {
+        printf("Element not found");
     }
 
     return 0;

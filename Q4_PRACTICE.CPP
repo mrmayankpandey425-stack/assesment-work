@@ -2,39 +2,34 @@
 
 int main()
 {
-    int arr1[100], arr2[100];
-    int n1, n2, i, j;
+    int arr[100], n, i, j, temp;
 
-    printf("Enter size of first array: ");
-    scanf("%d", &n1);
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
 
-    printf("Enter elements of first array:\n");
-    for(i = 0; i < n1; i++)
+    printf("Enter array elements:\n");
+    for(i = 0; i < n; i++)
     {
-        scanf("%d", &arr1[i]);
+        scanf("%d", &arr[i]);
     }
 
-    printf("Enter size of second array: ");
-    scanf("%d", &n2);
-
-    printf("Enter elements of second array:\n");
-    for(i = 0; i < n2; i++)
+    for(i = 0; i < n - 1; i++)
     {
-        scanf("%d", &arr2[i]);
-    }
-
-    printf("Common elements are:\n");
-
-    for(i = 0; i < n1; i++)
-    {
-        for(j = 0; j < n2; j++)
+        for(j = i + 1; j < n; j++)
         {
-            if(arr1[i] == arr2[j])
+            if(arr[i] < arr[j])
             {
-                printf("%d ", arr1[i]);
-                break;
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
         }
+    }
+
+    printf("Array in Descending Order:\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
     }
 
     return 0;
