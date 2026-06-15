@@ -2,7 +2,7 @@
 
 int main()
 {
-    int arr[100], n, i, key, found = 0;
+    int arr[100], n, i;
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
@@ -13,22 +13,10 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    printf("Enter element to search: ");
-    scanf("%d", &key);
-
-    for(i = 0; i < n; i++)
+    printf("Array in reverse order:\n");
+    for(i = n - 1; i >= 0; i--)
     {
-        if(arr[i] == key)
-        {
-            found = 1;
-            printf("Element found at position %d", i + 1);
-            break;
-        }
-    }
-
-    if(found == 0)
-    {
-        printf("Element not found");
+        printf("%d ", arr[i]);
     }
 
     return 0;

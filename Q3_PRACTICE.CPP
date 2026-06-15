@@ -2,8 +2,7 @@
 
 int main()
 {
-    int arr[100], n, i;
-    int largest, secondLargest;
+    int arr[100], n, i, last;
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
@@ -14,22 +13,20 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    largest = secondLargest = arr[0];
+    last = arr[n - 1];
 
-    for(i = 1; i < n; i++)
+    for(i = n - 1; i > 0; i--)
     {
-        if(arr[i] > largest)
-        {
-            secondLargest = largest;
-            largest = arr[i];
-        }
-        else if(arr[i] > secondLargest && arr[i] != largest)
-        {
-            secondLargest = arr[i];
-        }
+        arr[i] = arr[i - 1];
     }
 
-    printf("Second Largest Element = %d", secondLargest);
+    arr[0] = last;
+
+    printf("Array after right rotation:\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
 
     return 0;
 }
