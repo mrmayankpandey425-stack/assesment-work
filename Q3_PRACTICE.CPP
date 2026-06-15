@@ -3,7 +3,7 @@
 int main()
 {
     int arr[100], n, i;
-    int largest, smallest;
+    int largest, secondLargest;
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
@@ -14,19 +14,22 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    largest = smallest = arr[0];
+    largest = secondLargest = arr[0];
 
     for(i = 1; i < n; i++)
     {
         if(arr[i] > largest)
+        {
+            secondLargest = largest;
             largest = arr[i];
-
-        if(arr[i] < smallest)
-            smallest = arr[i];
+        }
+        else if(arr[i] > secondLargest && arr[i] != largest)
+        {
+            secondLargest = arr[i];
+        }
     }
 
-    printf("Largest element = %d\n", largest);
-    printf("Smallest element = %d\n", smallest);
+    printf("Second Largest Element = %d", secondLargest);
 
     return 0;
 }

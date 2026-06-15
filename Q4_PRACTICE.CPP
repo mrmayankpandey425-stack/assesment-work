@@ -2,8 +2,7 @@
 
 int main()
 {
-    int arr[100], n, i;
-    int even = 0, odd = 0;
+    int arr[100], n, i, j;
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
@@ -14,16 +13,19 @@ int main()
         scanf("%d", &arr[i]);
     }
 
+    printf("Duplicate elements are: ");
+
     for(i = 0; i < n; i++)
     {
-        if(arr[i] % 2 == 0)
-            even++;
-        else
-            odd++;
+        for(j = i + 1; j < n; j++)
+        {
+            if(arr[i] == arr[j])
+            {
+                printf("%d ", arr[i]);
+                break;
+            }
+        }
     }
-
-    printf("Number of Even elements = %d\n", even);
-    printf("Number of Odd elements = %d\n", odd);
 
     return 0;
 }

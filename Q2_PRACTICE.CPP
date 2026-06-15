@@ -1,22 +1,31 @@
 #include <stdio.h>
 
-int main() {
-    int arr[100], n, i, sum = 0;
-    float average;
+int main()
+{
+    int arr[100], n, i, key;
+    int count = 0;
 
-    printf("Enter the number of elements: ");
+    printf("Enter number of elements: ");
     scanf("%d", &n);
 
-    printf("Enter %d elements:\n", n);
-    for(i = 0; i < n; i++) {
+    printf("Enter array elements:\n");
+    for(i = 0; i < n; i++)
+    {
         scanf("%d", &arr[i]);
-        sum = sum + arr[i];
     }
 
-    average = (float)sum / n;
+    printf("Enter element to find frequency: ");
+    scanf("%d", &key);
 
-    printf("Sum = %d\n", sum);
-    printf("Average = %.2f\n", average);
+    for(i = 0; i < n; i++)
+    {
+        if(arr[i] == key)
+        {
+            count++;
+        }
+    }
+
+    printf("Frequency of %d = %d", key, count);
 
     return 0;
 }
