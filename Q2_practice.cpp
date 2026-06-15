@@ -1,30 +1,21 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    int num, originalNum, remainder;
-    int sum = 0, fact, i;
+    long long binary;
+    int decimal = 0, base = 0, remainder;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
+    printf("Enter a binary number: ");
+    scanf("%lld", &binary);
 
-    originalNum = num;
-
-    while (num > 0) {
-        remainder = num % 10;
-
-        fact = 1;
-        for (i = 1; i <= remainder; i++) {
-            fact *= i;
-        }
-
-        sum += fact;
-        num /= 10;
+    while (binary != 0) {
+        remainder = binary % 10;
+        decimal += remainder * pow(2, base);
+        binary /= 10;
+        base++;
     }
 
-    if (sum == originalNum)
-        printf("%d is a Strong Number.", originalNum);
-    else
-        printf("%d is not a Strong Number.", originalNum);
+    printf("Decimal = %d\n", decimal);
 
     return 0;
 }

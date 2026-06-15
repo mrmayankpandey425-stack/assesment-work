@@ -1,28 +1,20 @@
 #include <stdio.h>
 
 int main() {
-    long long num;
-    long long largestPrimeFactor = -1;
+    int x, n, i;
+    long long result = 1;
 
-    printf("Enter a number: ");
-    scanf("%lld", &num);
+    printf("Enter base (x): ");
+    scanf("%d", &x);
 
-    while (num % 2 == 0) {
-        largestPrimeFactor = 2;
-        num /= 2;
+    printf("Enter exponent (n): ");
+    scanf("%d", &n);
+
+    for(i = 1; i <= n; i++) {
+        result = result * x;
     }
 
-    for (long long i = 3; i * i <= num; i += 2) {
-        while (num % i == 0) {
-            largestPrimeFactor = i;
-            num /= i;
-        }
-    }
-
-    if (num > 2)
-        largestPrimeFactor = num;
-
-    printf("Largest Prime Factor = %lld\n", largestPrimeFactor);
+    printf("%d^%d = %lld\n", x, n, result);
 
     return 0;
 }

@@ -1,21 +1,26 @@
 #include <stdio.h>
 
 int main() {
-    int num, i, sum = 0;
+    int num, binary[32], i = 0;
 
-    printf("Enter a number: ");
+    printf("Enter a decimal number: ");
     scanf("%d", &num);
 
-    for(i = 1; i < num; i++) {
-        if(num % i == 0) {
-            sum += i;
-        }
+    if (num == 0) {
+        printf("Binary = 0");
+        return 0;
     }
 
-    if(sum == num)
-        printf("%d is a Perfect Number.", num);
-    else
-        printf("%d is not a Perfect Number.", num);
+    while (num > 0) {
+        binary[i] = num % 2;
+        num = num / 2;
+        i++;
+    }
+
+    printf("Binary = ");
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d", binary[j]);
+    }
 
     return 0;
 }
