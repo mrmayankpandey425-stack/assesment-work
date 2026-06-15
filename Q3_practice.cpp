@@ -1,18 +1,17 @@
 #include <stdio.h>
-
 int main() {
-    int num, digit, product = 1;
+    int a, b, temp;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
 
-    while(num != 0) {
-        digit = num % 10;      // Extract last digit
-        product = product * digit;
-        num = num / 10;        // Remove last digit
+    while (b != 0) {
+        temp = b;
+        b = a % b;
+        a = temp;
     }
 
-    printf("Product of digits = %d\n", product);
+    printf("GCD = %d\n", a);
 
     return 0;
 }

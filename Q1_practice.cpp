@@ -1,18 +1,25 @@
 #include <stdio.h>
-
 int main() {
-    int num, digit, sum = 0;
+    int num, i, flag = 1;
 
     printf("Enter a number: ");
     scanf("%d", &num);
 
-    while(num != 0) {
-        digit = num % 10;   // Extract last digit
-        sum = sum + digit;  // Add digit to sum
-        num = num / 10;     // Remove last digit
+    if (num <= 1) {
+        flag = 0;
+    } else {
+        for (i = 2; i < num; i++) {
+            if (num % i == 0) {
+                flag = 0;
+                break;
+            }
+        }
     }
 
-    printf("Sum of digits = %d\n", sum);
+    if (flag == 1)
+        printf("%d is a Prime Number.\n", num);
+    else
+        printf("%d is not a Prime Number.\n", num);
 
     return 0;
 }

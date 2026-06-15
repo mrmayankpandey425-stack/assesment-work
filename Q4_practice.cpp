@@ -1,23 +1,24 @@
 #include <stdio.h>
-
 int main() {
-    int num, original, reverse = 0, digit;
+    int a, b, gcd, lcm, temp;
+    int num1, num2;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
 
-    original = num;
+    a = num1;
+    b = num2;
 
-    while(num != 0) {
-        digit = num % 10;
-        reverse = reverse * 10 + digit;
-        num = num / 10;
+    while (b != 0) {
+        temp = b;
+        b = a % b;
+        a = temp;
     }
 
-    if(original == reverse)
-        printf("%d is a Palindrome Number.\n", original);
-    else
-        printf("%d is not a Palindrome Number.\n", original);
+    gcd = a;
+    lcm = (num1 * num2) / gcd;
+
+    printf("LCM = %d\n", lcm);
 
     return 0;
 }

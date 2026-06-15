@@ -1,18 +1,31 @@
 #include <stdio.h>
-
 int main() {
-    int num, reverse = 0, digit;
+    int start, end, i, j, isPrime;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
+    printf("Enter the starting number: ");
+    scanf("%d", &start);
 
-    while(num != 0) {
-        digit = num % 10;              // Extract last digit
-        reverse = reverse * 10 + digit; // Build reversed number
-        num = num / 10;               // Remove last digit
+    printf("Enter the ending number: ");
+    scanf("%d", &end);
+
+    printf("Prime numbers between %d and %d are:\n", start, end);
+
+    for(i = start; i <= end; i++) {
+        if(i <= 1)
+            continue;
+
+        isPrime = 1;
+
+        for(j = 2; j < i; j++) {
+            if(i % j == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+
+        if(isPrime)
+            printf("%d ", i);
     }
-
-    printf("Reversed number = %d\n", reverse);
 
     return 0;
 }
