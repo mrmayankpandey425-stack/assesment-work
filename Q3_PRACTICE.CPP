@@ -2,7 +2,8 @@
 
 int main()
 {
-    int arr[100], n, i, last;
+    int arr[100], n, i, j, sum;
+    int found = 0;
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
@@ -13,19 +14,26 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    last = arr[n - 1];
+    printf("Enter the required sum: ");
+    scanf("%d", &sum);
 
-    for(i = n - 1; i > 0; i--)
-    {
-        arr[i] = arr[i - 1];
-    }
+    printf("Pairs with given sum are:\n");
 
-    arr[0] = last;
-
-    printf("Array after right rotation:\n");
     for(i = 0; i < n; i++)
     {
-        printf("%d ", arr[i]);
+        for(j = i + 1; j < n; j++)
+        {
+            if(arr[i] + arr[j] == sum)
+            {
+                printf("(%d, %d)\n", arr[i], arr[j]);
+                found = 1;
+            }
+        }
+    }
+
+    if(found == 0)
+    {
+        printf("No pair found.");
     }
 
     return 0;

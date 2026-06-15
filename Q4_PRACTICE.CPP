@@ -2,7 +2,7 @@
 
 int main()
 {
-    int arr[100], n, i, j = 0, temp;
+    int arr[100], n, i, j, k;
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
@@ -15,16 +15,21 @@ int main()
 
     for(i = 0; i < n; i++)
     {
-        if(arr[i] != 0)
+        for(j = i + 1; j < n; j++)
         {
-            temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-            j++;
+            if(arr[i] == arr[j])
+            {
+                for(k = j; k < n - 1; k++)
+                {
+                    arr[k] = arr[k + 1];
+                }
+                n--;
+                j--;
+            }
         }
     }
 
-    printf("Array after moving zeroes to the end:\n");
+    printf("Array after removing duplicates:\n");
     for(i = 0; i < n; i++)
     {
         printf("%d ", arr[i]);

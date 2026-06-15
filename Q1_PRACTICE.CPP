@@ -3,21 +3,24 @@
 int main()
 {
     int arr[100], n, i;
+    int totalSum = 0, arraySum = 0, missing;
 
-    printf("Enter number of elements: ");
+    printf("Enter value of n: ");
     scanf("%d", &n);
 
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++)
+    printf("Enter %d elements (one number missing):\n", n - 1);
+
+    for(i = 0; i < n - 1; i++)
     {
         scanf("%d", &arr[i]);
+        arraySum += arr[i];
     }
 
-    printf("Array in reverse order:\n");
-    for(i = n - 1; i >= 0; i--)
-    {
-        printf("%d ", arr[i]);
-    }
+    totalSum = n * (n + 1) / 2;
+
+    missing = totalSum - arraySum;
+
+    printf("Missing Number = %d", missing);
 
     return 0;
 }
